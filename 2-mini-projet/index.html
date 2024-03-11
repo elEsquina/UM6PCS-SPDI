@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="style.css">
+    </head>
+
+
+    <body>
+      <div id ="app">
+        <h2>Liste des tâches</h2>
+        <div class="buttons">
+          <div v-bind:class="{ 'active': filter === 'all' }" @click="filterto('all')">Toutes</div>
+          <div v-bind:class="{ 'active': filter === 'todo' }" @click="filterto('todo')">À faire</div>
+          <div v-bind:class="{ 'active': filter === 'completed' }" @click="filterto('completed')">Terminées</div>
+        </div><br>
+
+        <ul>
+          <li v-for="task in tasks" v-show="(task.completed && filter === 'completed') || (!task.completed && filter == 'todo') || (filter == 'all')">
+            {{ task.title }} - {{ task.description }}
+            <button v-if="!task.completed" @click="markAsCompleted(task)">Terminer</button>
+          </li>
+        </ul><br>
+    
+        <p>Nombre total de tâches : {{ totalTasks }}</p>
+      </div>
+    </body>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="main.js"></script>
+</html>
+
+

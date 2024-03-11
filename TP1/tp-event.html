@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<title>Manipulation de vue</title>
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	</head>
+
+	<body>
+		<div id="monapp">
+			<h1>Ex1: </h1>
+			<button @click="click"> {{ titre }} </button>
+
+			<br><br>
+			<h1>Ex2: </h1>
+			<button @click="compteur--"> -- </button>
+			<span>{{ compteur }}</span>
+			<button @click="compteur++"> ++ </button>
+
+			<br><br>
+			<h1>Ex3: </h1>
+			<input type="text" v-model="inputText" placeholder="Saisissez du texte" @keyup.space="warning" @keyup.backspace="unwarning">
+			<h4 style="color: red;" v-show="showReminder">Veuillez ne pas utiliser d'espaces.</h4>
+
+		</div>	
+	</body>
+
+	<script>
+		const appli = {
+			data () {
+					return {
+						titre: "Cliquez moi!",
+						compteur: 0,
+						inputText: "",
+						showReminder: false
+					}
+			},
+
+			methods: {
+				click() {this.titre = "Cliqué!";},
+
+				warning() {
+					this.showReminder = true;
+				},
+
+				unwarning() {
+					if (!this.inputText.includes(" ")){
+						this.showReminder = false;
+					}
+				}
+			}
+		};
+		
+		Vue.createApp(appli).mount("#monapp");
+	</script>
+
+</html>
