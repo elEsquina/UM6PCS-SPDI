@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+}
+
+h3 {
+    margin-top: 30px;
+}
+
+div {
+    margin-bottom: 20px;
+}
+
+input[type="textbox"],
+input[type="email"],
+textarea,
+button {
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+button {
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+span {
+    font-weight: bold;
+}
+
+#menu {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    position: absolute;
+    display: none;
+    z-index: 1;
+}
