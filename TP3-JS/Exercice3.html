@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Formulaire d'inscription</title>
+</head>
+
+<body>
+    <form id="student_info" onsubmit="submitForm(); return false;">
+        <label for="code">Code étudiant: </label>
+        <input type="text" name="code" id="code" required>
+
+        <label for="name">Nom étudiant: </label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="prenom">Prenom étudiant: </label>
+        <input type="text" name="prenom" id="prenom" required>
+
+        <label for="semester">Semestre: </label>
+        <select id="semester" required>
+            <option value="0">Selectionner un semestre</option>
+            <option value="1">Semestre 1</option>
+            <option value="2">Semestre 2</option>
+        </select>
+
+        <label for="mod1">Module 1: </label>
+        <input type="number" name="mod1" id="mod1" required>
+        <label for="mod2">Module 2: </label>
+        <input type="number" name="mod2" id="mod2" required>
+        <label for="mod3">Module 3: </label>
+        <input type="number" name="mod3" id="mod3" required> 
+        <label for="mod4">Module 4: </label>
+        <input type="number" name="mod4" id="mod4" required>
+        <label for="mod5">Module 5: </label>
+        <input type="number" name="mod5" id="mod5" required>
+        <label for="mod6">Module 6: </label>
+        <input type="number" name="mod6" id="mod6" required> <br>
+
+        <input type="submit">
+        <input type="reset">
+    </form>
+
+    <table id="stats">
+
+    </table>
+
+
+</body>
+
+<script>
+    function submitForm(){
+        var container = document.getElementById("stats");
+
+        var code = document.getElementById("code").value;
+        var name = document.getElementById("name").value;
+        var prenom = document.getElementById("prenom").value;
+        var semester = document.getElementById("semester").value;
+
+        var mod1 = parseFloat(document.getElementById("mod1").value);
+        var mod2 = parseFloat(document.getElementById("mod2").value);
+        var mod3 = parseFloat(document.getElementById("mod3").value);
+        var mod4 = parseFloat(document.getElementById("mod4").value);
+        var mod5 = parseFloat(document.getElementById("mod5").value);
+        var mod6 = parseFloat(document.getElementById("mod6").value);
+
+        if (isNaN(mod1) || isNaN(mod2) || isNaN(mod3) || isNaN(mod4) || isNaN(mod5) ||isNaN(mod6)){
+            alert("Veuillez ecrire des nombres valid");
+            return
+        }
+        if (semester == 0){
+           alert("Veuillez selectioner un semester");
+           return;
+        }
+
+        var moy = (mod1 + mod2 + mod3 + mod4 + mod5 + mod6)/6
+        var elim = mod1 < 8 || mod2 < 8 || mod3 < 8 || mod4 < 8 || mod5 < 8 || mod6 < 8;
+        var dec = (moy < 12 || elim) ?  "semester non valide" : "semester valide";
+        
+
+        if (container.childNodes.length == 1){
+            container.innerHTML = `
+                <tr>
+                    <th>Code étudiant</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Semester</th>
+                    <th>Module 1</th>
+                    <th>Module 2</th>
+                    <th>Module 3</th>
+                    <th>Module 4</th>
+                    <th>Module 5</th>
+                    <th>Module 6</th>
+                    <th>Moyenne</th>
+                    <th>Decision</th>
+                </tr>
+            `;
+        }
+
+        container.innerHTML += `
+                <tr>
+                    <td>${code}</td>
+                    <td>${name}</td>
+                    <td>${prenom}</td>
+                    <td>${semester}</td>
+                    <td>${mod1}</td>
+                    <td>${mod2}</td>
+                    <td>${mod3}</td>
+                    <td>${mod4}</td>
+                    <td>${mod5}</td>
+                    <td>${mod6}</td>
+                    <td>${moy}</td>
+                    <td>${dec}</td>
+                </tr>       
+        `
+
+        document.getElementById("student_info").reset();
+
+    }
+</script>
+
+</html>

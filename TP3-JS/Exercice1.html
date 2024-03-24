@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Exercises</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    
+</head>
+
+<body>
+    
+    <h2>Exercice 1</h2>
+    <form id="exercice1" onsubmit="return validateForm()">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" required>
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="password" required>
+        <label for="password2">Confirmer le mot de passe:</label>
+        <input type="password" id="password2" name="password2" required>
+        <label for="phone">Téléphone:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <label for="langue">Langue:</label>
+        <select id="langue" name="langue">
+            <option value="Arabe">Arabe</option>
+            <option value="Français">Français</option>
+            <option value="Anglais">Anglais</option>
+        </select>
+        <label for="commentaire">Commentaire:</label>
+        <textarea id="commentaire" rows="5" cols="20" required></textarea><br>
+        <input type="submit" value="Valider">
+        <input type="button" value="Annuler" onclick="resetForm()">
+    </form>
+    
+    <div id="summary"></div>
+    
+    <script>
+        function validateForm() {
+            var nom = document.getElementById('nom').value;
+            var prenom = document.getElementById('prenom').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var password2 = document.getElementById('password2').value;
+            var phone = document.getElementById('phone').value;
+            var langue = document.getElementById('langue').value;
+    
+            if (password.length < 8) {
+                alert('Le mot de passe doit avoir au moins 8 caractères.');
+                return false; 
+            }
+            if (password !== password2) {
+                alert('Les mots de passe ne correspondent pas.');
+                return false;
+            }
+    
+            var summary = document.getElementById('summary');
+            summary.innerHTML = '<h2>Récapitulatif des informations :</h2>' +
+                '<p><strong>Nom:</strong> ' + nom + '</p>' +
+                '<p><strong>Prénom:</strong> ' + prenom + '</p>' +
+                '<p><strong>Email:</strong> ' + email + '</p>' +
+                '<p><strong>Téléphone:</strong> ' + phone + '</p>' +
+                '<p><strong>Langue:</strong> ' + langue + '</p>' +
+                '<p><strong>Commentaire:</strong> ' + document.getElementById('commentaire').value + '</p>';
+    
+            return false;
+        }
+    
+        function resetForm() {
+            document.getElementById('exercice1').reset();
+            document.getElementById('summary').innerHTML = ''; 
+        }
+    </script>
+
+</body>
+
+<script src="main.js"></script>
+</html>

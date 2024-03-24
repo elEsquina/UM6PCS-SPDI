@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Générateur de nombres aléatoires</title>
+</head>
+<body>
+
+<form id="randomNumbersForm" onsubmit="generateRandomNumbers(); return false;">
+    <label for="dimension">Dimension du tableau:</label>
+    <input type="text" id="dimension" name="dimension" required>
+    <label for="lowerLimit">Limite inférieure:</label>
+    <input type="text" id="lowerLimit" name="lowerLimit" required>
+    <label for="upperLimit">Limite supérieure:</label>
+    <input type="text" id="upperLimit" name="upperLimit" required> <br>
+    <input type="submit" value="Générer">
+</form>
+
+<div id="randomNumbersTable"></div>
+
+<script>
+function generateRandomNumbers() {
+    var dimension = parseInt(document.getElementById('dimension').value);
+    var lowerLimit = parseInt(document.getElementById('lowerLimit').value);
+    var upperLimit = parseInt(document.getElementById('upperLimit').value);
+
+    if (isNaN(dimension) || isNaN(lowerLimit) || isNaN(upperLimit) || dimension <= 0 || lowerLimit >= upperLimit) {
+        alert('Veuillez saisir des entiers valides et assurez-vous que la limite inférieure est inférieure à la limite supérieure.');
+        return;
+    }
+
+    var randomNumbersTable = '<table>';
+    var columnCount = 0;
+
+    for (var i = 0; i < dimension; i++) {
+        if (columnCount === 0) {
+            randomNumbersTable += '<tr>';
+        }
+        var randomNumber = Math.floor(Math.random() * (upperLimit - lowerLimit + 1)) + lowerLimit;
+        randomNumbersTable += '<td>' + randomNumber + '</td>';
+        columnCount++;
+        if (columnCount === 10) {
+            randomNumbersTable += '</tr>';
+            columnCount = 0;
+        }
+    }
+    
+    if (columnCount !== 0) {
+        randomNumbersTable += '</tr>';
+    }
+    randomNumbersTable += '</table>';
+
+    document.getElementById('randomNumbersTable').innerHTML = randomNumbersTable;
+}
+</script>
+
+</body>
+</html>

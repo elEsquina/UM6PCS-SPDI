@@ -98,7 +98,7 @@ document.getElementById("redirectLink").addEventListener("click", function(event
 
 document.getElementById("menuButton").addEventListener("click", function() {
     var menu = document.getElementById("menu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    menu.style.display = (menu.style.display == "block") ? "none" : "block";
 });
 
 document.getElementById("menuButton").addEventListener("mouseleave", function() {
