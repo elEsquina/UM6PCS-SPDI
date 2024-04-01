@@ -63,9 +63,9 @@ function load() {
 
 function submit() {
     let score = 0;
-    questions.forEach((q, index) => {
-        const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
-        if (selectedOption && selectedOption.value == q.answer) {
+    questions.forEach((q, idx) => {
+        const correctness = document.querySelector(`input[name="question${idx}"]:checked`);
+        if (correctness && correctness.value == q.answer) {
             score++;
         }
     });
