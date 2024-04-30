@@ -1,0 +1,44 @@
+{
+  "jobs": [
+    {
+      "id": 1,
+      "title": "Software Engineer",
+      "description": "Develop and maintain software applications.",
+      "salary": 80000,
+      "date_of_creation": "2024-04-26",
+      "years_of_experience": 3
+    },
+    {
+      "id": 2,
+      "title": "Data Scientist",
+      "description": "Analyze large datasets to extract insights.",
+      "salary": 90000,
+      "date_of_creation": "2024-04-25",
+      "years_of_experience": 5
+    },
+    {
+      "id": 3,
+      "title": "Product Manager",
+      "description": "Define product roadmap and prioritize features.",
+      "salary": 100000,
+      "date_of_creation": "2024-04-24",
+      "years_of_experience": 7
+    },
+    {
+      "id": 4,
+      "title": "UX/UI Designer",
+      "description": "Design user interfaces and enhance user experience.",
+      "salary": 85000,
+      "date_of_creation": "2024-04-23",
+      "years_of_experience": 4
+    },
+    {
+      "id": 5,
+      "title": "Marketing Manager",
+      "description": "Plan and execute marketing campaigns.",
+      "salary": 95000,
+      "date_of_creation": "2024-04-22",
+      "years_of_experience": 6
+    }
+  ]
+}
