@@ -27,3 +27,11 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### JSON SERVER
+
+local host at port 3000
+
+```sh
+npx json-server --watch data/db.json
+```
