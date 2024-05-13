@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheet1.css">
+  <title>Exercice1</title>
+</head>
+
+<body>
+
+  <form id="regisexercice1" onsubmit="validateform() ; return false;">
+    <label for="identifiant">ID<span class="red">*</span>:</label>
+    <input type="text" id="identifiant" name="identifiant" required> <br>
+    <div class="graycool" id="displayid"></div> <br>
+
+    <label for="nom">Nom<span class="red">*</span>:</label>
+    <input type="text" id="nom" name="nom" required> <br>
+    
+    <label for="prenom">Prénom<span class="red">*</span>:</label>
+    <input type="text" id="prenom" name="prenom" required> <br>
+    
+    <label for="age">Age<span class="red">*</span>: </label>
+    <input type="number" id="age" name = "age" required> <br>
+    <div class="graycool" id="displayage"></div> <br>
+
+    <label for="password">Mot de passe<span class="red">*</span>:</label>
+    <input type="password" id="password" name="password" required> <br>
+    
+    <div class="graycool" id="displaypts"></div> <br>
+
+    <label for="password2">Confirmer le mot de passe<span class="red">*</span>:</label>
+    <input type="password" id="password2" name="password2" required> <br>
+    <div class="graycool" id="displaypswd"></div> <br>
+
+    <input type="checkbox" name="rad" id="rad"> 
+    <label for="rad">J'accepte les CGU <span class="red">*</span></label> <br>
+    <div class="graycool" id="displaygcu"></div> <br>
+
+    <input class="gray" type="submit" id="submission">
+    <input type="reset">
+  </form>
+
+  <script src="exercice1.js"></script>
+
+</body>
+</html>
