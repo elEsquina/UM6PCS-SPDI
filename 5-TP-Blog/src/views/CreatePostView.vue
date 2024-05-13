@@ -31,6 +31,7 @@ export default {
   },
   methods: {
     submitForm() {
+      this.post.tags = this.post.tags.trim();
       this.post.tags = this.post.tags.split(' ');
       projectFirestore.collection('posts').add(this.post);
       this.$router.push({ name: 'home' });

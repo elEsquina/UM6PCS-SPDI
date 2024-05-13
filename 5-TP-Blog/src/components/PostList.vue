@@ -1,8 +1,7 @@
 <template>
     <div>
-        {{ selectedTag }} effstges
         <div v-for="post in posts">
-            <SinglePost v-show="true" @viewdetails="viewdetails" :post="post"/>
+            <SinglePost v-show="selectedTag === null || (selectedTag && post.tags.includes(selectedTag))" @viewdetails="viewdetails" :post="post"/>
             <br>
         </div>
     </div>

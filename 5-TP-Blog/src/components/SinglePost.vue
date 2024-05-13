@@ -2,14 +2,7 @@
   <fieldset>
     <h1>{{ post.title }}</h1>
     <p>{{ snippet }}</p>
-    <div>
-      <h3>Tags:</h3>
-      <div class="tagslist">
-        <div v-for="tag in post.tags" :key="tag">{{ tag }}</div>
-      </div>
-    </div>
 
-    <br>
     <button @click="this.$emit('viewdetails', post.id)">View Details</button>
     <button @click="editpage()">Edit</button>
     <button class="red" @click="deletepage()">Delete</button>

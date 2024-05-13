@@ -28,8 +28,8 @@ export default {
   },
   methods: {
     submitForm(){
-      console.log('submitForm called with this.post');
       
+      this.post.tags = this.post.tags.trim();
       this.post.tags = this.post.tags.split(' ');
       const { id, ...post } = this.post;
       

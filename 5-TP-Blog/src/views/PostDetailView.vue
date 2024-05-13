@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <fieldset class="main">
     <h1>{{ postinfo.title }}</h1>
     <p>{{ postinfo.content }}</p>
 
@@ -8,7 +8,7 @@
       <div v-for="tag in postinfo.tags" :key="tag">{{ tag }}</div>
     </div>
 
-  </div>
+  </fieldset>
 </template>
 
 <script>
@@ -36,6 +36,7 @@ export default {
 </script>
 
 <style>
+
 h1 {
   font-size: 24px;
   font-weight: bold;

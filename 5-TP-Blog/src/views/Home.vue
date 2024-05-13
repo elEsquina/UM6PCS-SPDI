@@ -1,7 +1,7 @@
 <template lang="">
   <div class="griddisplay">
-    <PostList :posts="posts" :selectedTag="selectedtag" @filterposts="ontagselected" class="left"/>
-    <TagCloud :topTags="tags" class="right"/>
+    <PostList :posts="posts" :selectedTag="selectedTag" class="left" :key="selectedTag"/>
+    <TagCloud :topTags="tags"  @filterposts="ontagselected"  class="right"/>
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
     return {
       posts: [],
       tags: [],
-      selectedtag: null,
+      selectedTag: null,
     }
   },
   methods: {
@@ -53,7 +53,7 @@ export default {
       this.tags = sortedTags.slice(0, 5);
     },
     ontagselected(tag) {
-      this.selectedtag = tag;
+      this.selectedTag = tag;
     },
   },
   created() {
