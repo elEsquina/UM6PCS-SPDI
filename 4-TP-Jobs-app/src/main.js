@@ -4,7 +4,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-const DBAPI = "http://localhost:3000";
+import {firebase} from "./firebase/Config.js"
+
 const app = createApp(App);
 
 app.use(router);

@@ -1,7 +1,7 @@
 {
   "jobs": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Software Engineer",
       "description": "Develop and maintain software applications.",
       "salary": 80000,
@@ -9,7 +9,7 @@
       "years_of_experience": 3
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Data Scientist",
       "description": "Analyze large datasets to extract insights.",
       "salary": 90000,
@@ -17,7 +17,7 @@
       "years_of_experience": 5
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Product Manager",
       "description": "Define product roadmap and prioritize features.",
       "salary": 100000,
@@ -25,7 +25,7 @@
       "years_of_experience": 7
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "UX/UI Designer",
       "description": "Design user interfaces and enhance user experience.",
       "salary": 85000,
@@ -33,7 +33,7 @@
       "years_of_experience": 4
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Marketing Manager",
       "description": "Plan and execute marketing campaigns.",
       "salary": 95000,
