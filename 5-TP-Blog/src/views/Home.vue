@@ -1,4 +1,4 @@
-<template lang="">
+<template>
   <div class="griddisplay">
     <PostList :posts="posts" :selectedTag="selectedTag" class="left" :key="selectedTag"/>
     <TagCloud :topTags="tags"  @filterposts="ontagselected"  class="right"/>
