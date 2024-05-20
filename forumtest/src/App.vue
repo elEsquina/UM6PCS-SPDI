@@ -1,15 +1,19 @@
 <template>
-  <div id="app">
+    <UserMenu/>
     <nav>
       <router-link to="/">Home</router-link>
     </nav>
     <router-view/>
-  </div>
 </template>
 
 <script>
+import UserMenu from '@/components/UserMenu.vue';
+
 export default {
   name: 'App',
+  components: {
+   UserMenu
+  },
   created() {
 
   }
@@ -17,5 +21,7 @@ export default {
 </script>
 
 <style>
-
+body{
+  font-family: Arial, sans-serif;
+}
 </style>

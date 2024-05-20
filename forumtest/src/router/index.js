@@ -3,9 +3,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import WelcomeView from '../views/welcome.vue';
 import DashboardView from '../views/dashboard.vue';
-import useAuth from '@/firebase/getUser'; 
-
-const { isAuthenticated } = useAuth();
+import getUser from '@/firebase/getUser'; 
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
@@ -13,7 +11,8 @@ const router = createRouter({
     {
       path: '/',
       name: 'Welcome',
-      component: WelcomeView
+      component: WelcomeView,
+      meta: { requiresAuth: false } 
     },
     {
       path: '/dashboard',
@@ -25,10 +24,14 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.meta.requiresAuth && !isAuthenticated.value) {
-    next({ name: 'Welcome' });
+  const user = getUser(); 
+  const isAuthenticated = user !== null; 
+  if (to.meta.requiresAuth && !isAuthenticated) {
+    next({ path: '/' }); 
+  } else if (!to.meta.requiresAuth && isAuthenticated) {
+    next({ path: '/dashboard' });
   } else {
-    next(); 
+    next();
   }
 });
 

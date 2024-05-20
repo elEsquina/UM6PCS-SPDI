@@ -26,7 +26,7 @@ export default {
     const router = useRouter()
 
     const authed = () => {
-      router.push({ name: 'dashboard' })
+      router.push({path: '/dashboard' })
     }
 
     return { showLogin, authed }

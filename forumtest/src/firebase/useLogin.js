@@ -1,4 +1,4 @@
-import { projectAuth } from "@/firebase/Config";
+import { projectFirestore, projectAuth } from "@/firebase/Config"
 import { ref } from "vue";
 
 const error = ref(null);
