@@ -1,17 +1,22 @@
 // router/index.js
 
 import { createRouter, createWebHistory } from 'vue-router';
-import WelcomeView from '../views/welcome.vue';
+
+import AuthView from '../views/auth.vue';
 import DashboardView from '../views/dashboard.vue';
-import getUser from '@/firebase/getUser'; 
+import DiscussionView from '../views/discussion.vue';
+import ProfileView from '../views/profile.vue';
+import CreateThreadView from '../views/createthread.vue';
+
+import {getUser, isLogged} from '@/firebase/Authentification/getUser'; 
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'Welcome',
-      component: WelcomeView,
+      name: 'AuthPage',
+      component: AuthView,
       meta: { requiresAuth: false } 
     },
     {
@@ -19,17 +24,33 @@ const router = createRouter({
       name: 'Dashboard',
       component: DashboardView,
       meta: { requiresAuth: true } 
+    },
+    {
+      path: '/discussion/:id',
+      name: 'Discussion',
+      component: DiscussionView,
+      meta: { requiresAuth: true } 
+    },
+    {
+      path: '/profile/:id',
+      name: 'Profile',
+      component: ProfileView,
+      meta: { requiresAuth: true } 
+    },
+    {
+      path: '/create',
+      name: 'CreateThread',
+      component: CreateThreadView,
+      meta: { requiresAuth: true } 
     }
   ]
 });
 
 router.beforeEach((to, from, next) => {
-  const user = getUser(); 
-  const isAuthenticated = user !== null; 
-  if (to.meta.requiresAuth && !isAuthenticated) {
-    next({ path: '/' }); 
-  } else if (!to.meta.requiresAuth && isAuthenticated) {
-    next({ path: '/dashboard' });
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  const isAuthenticated = isLogged();
+  if (requiresAuth && !isAuthenticated) {
+    next({path: '/login'});
   } else {
     next();
   }

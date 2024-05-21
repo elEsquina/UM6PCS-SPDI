@@ -9,7 +9,12 @@ projectAuth.onAuthStateChanged(_user => {
 });
 
 const getUser = () => {
-  return user.value
+  return user.value;
 }
 
-export default getUser
+const isLogged = () => {
+  return (user.value == null ? false : true);
+}
+
+
+export {getUser, isLogged}

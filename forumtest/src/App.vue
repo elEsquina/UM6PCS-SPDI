@@ -1,19 +1,12 @@
 <template>
-    <UserMenu/>
-    <nav>
-      <router-link to="/">Home</router-link>
-    </nav>
     <router-view/>
 </template>
 
 <script>
-import UserMenu from '@/components/UserMenu.vue';
-
+import UserInfo from './components/UserInfo.vue';
 export default {
   name: 'App',
-  components: {
-   UserMenu
-  },
+  components: { UserInfo },
   created() {
 
   }

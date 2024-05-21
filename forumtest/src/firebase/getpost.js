@@ -23,4 +23,4 @@ const getpost = (id) => {
   return { post, error, load } 
 }
 
-export default getpost
+export default getpostfghgsfh

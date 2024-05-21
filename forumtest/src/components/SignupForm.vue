@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import useSignup from '@/firebase/useSignup';
+import useSignup from '@/firebase/Authentification/useSignup';
 import { ref } from 'vue';
 
 const emit = defineEmits(['customEvent']);
@@ -28,9 +28,8 @@ const handleSignUP = async () => {
       emit('singup')
     }
 }
-
-
 </script>
+
 
 <style>
 

@@ -1,18 +1,15 @@
 <template>
     <div>
-      <h1>Dashboard</h1>
-      
+      <h1>Create Thread</h1>
     </div>
   </template>
   
   <script>
   export default {
-    name: 'Dashboard',
- 
+    name: 'CreateThread',
   }
   </script>
   
   <style scoped>
- 
   </style>
   

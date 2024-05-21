@@ -1,18 +1,15 @@
 <template>
     <div>
-      <h1>Dashboard</h1>
-      
+      <h1>Profile</h1>
     </div>
   </template>
   
   <script>
   export default {
-    name: 'Dashboard',
- 
+    name: 'Profile',
   }
   </script>
   
   <style scoped>
- 
   </style>
   
