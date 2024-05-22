@@ -25,7 +25,7 @@ const {error, signup} = useSignup()
 const handleSignUP = async () => {
     await signup(email.value, password.value, displayName.value)
     if(!error.value){
-      emit('singup')
+      emit('signup')
     }
 }
 </script>

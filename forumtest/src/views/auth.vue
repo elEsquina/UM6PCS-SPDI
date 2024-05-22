@@ -16,7 +16,6 @@
 <script>
 import SignupForm from '../components/SignupForm.vue'
 import LoginForm from '../components/LoginForm.vue'
-import { ref } from 'vue'
 
 export default {
   components: { SignupForm, LoginForm },
@@ -26,7 +25,7 @@ export default {
   },
   methods: {
     enterForum(){
-      this.$router.push('Home');
+      this.$router.push('/dashboard');
     }
    
   },
